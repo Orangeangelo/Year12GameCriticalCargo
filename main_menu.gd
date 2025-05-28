@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_start_pressed():
-	print("Start pressed")
+	print("Start pressed") #get_tree().change_scene_to_file()
 
 
 func _on_settings_pressed():
@@ -10,4 +10,4 @@ func _on_settings_pressed():
 
 
 func _on_exit_pressed():
-	print("Exit pressed")
+	get_tree().quit()
