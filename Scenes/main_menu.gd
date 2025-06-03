@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_start_pressed():
-	print("Start pressed") #get_tree().change_scene_to_file()
+	get_tree().change_scene_to_file("res://Level.tscn")
 
 
 func _on_settings_pressed():
