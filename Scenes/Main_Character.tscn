@@ -192,7 +192,6 @@ radius = 32.5
 height = 85.0
 
 [node name="Character" type="CharacterBody2D"]
-position = Vector2(26, 15)
 script = ExtResource("1_mnji8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -202,7 +201,7 @@ scale = Vector2(3.09375, 3.09375)
 sprite_frames = SubResource("SpriteFrames_bteda")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.351489
+frame_progress = 0.905461
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(50.5, 50.5)
