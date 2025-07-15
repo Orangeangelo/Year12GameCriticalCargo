@@ -316,4 +316,9 @@ tile_map_data = PackedByteArray("AAADAAUAAAAGAAQAAAADAAYAAAAGAAUAAAADAAcAAAAGAAY
 tile_set = SubResource("TileSet_xylue")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_8rbpu")]
-position = Vector2(156, 145)
+position = Vector2(164, 146)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(4, -5)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
