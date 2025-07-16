@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bbis52cq5il2n"]
+[gd_scene load_steps=8 format=4 uid="uid://bbis52cq5il2n"]
 
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
 [ext_resource type="Texture2D" uid="uid://ckelq1e16tnbt" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://cosjc3hvad8yr" path="res://Scenes/Main_Character.tscn" id="3_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://c4ujxvj8dgxon" path="res://Scenes/collectable.tscn" id="4_fuudy"]
+[ext_resource type="Script" uid="uid://bcuapvf2o5538" path="res://Scenes/game_manager.gd" id="5_xylue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -302,11 +303,8 @@ sources/0 = SubResource("TileSetAtlasSource_fuudy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1165.0
+offset_bottom = 639.0
 texture = ExtResource("1_vsvp5")
 stretch_mode = 1
 
@@ -335,3 +333,7 @@ position = Vector2(801, 203)
 
 [node name="Collectable4" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(1038, 198)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_xylue")

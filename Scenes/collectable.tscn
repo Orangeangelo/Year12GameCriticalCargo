@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4ujxvj8dgxon"]
+[gd_scene load_steps=22 format=3 uid="uid://c4ujxvj8dgxon"]
 
 [ext_resource type="Texture2D" uid="uid://njm8iwxw3oav" path="res://Pixel Adventure 1/Free/Items/Fruits/Pineapple.png" id="1_3rsma"]
+[ext_resource type="Script" uid="uid://cgmys18v6ur5d" path="res://Scenes/collectable.gd" id="1_licok"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xylue"]
 atlas = ExtResource("1_3rsma")
@@ -133,6 +134,7 @@ animations = [{
 radius = 26.0
 
 [node name="Collectable" type="Area2D"]
+script = ExtResource("1_licok")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -146,3 +148,5 @@ frame_progress = 0.630749
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 8)
 shape = SubResource("CircleShape2D_ifohm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
