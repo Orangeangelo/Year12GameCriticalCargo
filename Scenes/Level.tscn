@@ -339,10 +339,6 @@ position = Vector2(1038, 198)
 [node name="Collectable5" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(404, 528)
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("5_xylue")
-
 [node name="Collectable6" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(833, 480)
 
@@ -369,3 +365,7 @@ position = Vector2(3030, 382)
 
 [node name="Collectable14" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(2167, 240)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_xylue")
