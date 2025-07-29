@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bbis52cq5il2n"]
+[gd_scene load_steps=8 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
 [ext_resource type="Texture2D" uid="uid://ckelq1e16tnbt" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_8rbpu"]
-[ext_resource type="PackedScene" uid="uid://cosjc3hvad8yr" path="res://Scenes/Main_Character.tscn" id="3_8rbpu"]
-[ext_resource type="PackedScene" uid="uid://c4ujxvj8dgxon" path="res://Scenes/collectable.tscn" id="4_fuudy"]
+[ext_resource type="PackedScene" path="res://Scenes/Main_Character.tscn" id="3_8rbpu"]
+[ext_resource type="PackedScene" path="res://Scenes/collectable.tscn" id="4_fuudy"]
 [ext_resource type="Script" uid="uid://bcuapvf2o5538" path="res://Scenes/game_manager.gd" id="5_xylue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
@@ -301,7 +301,7 @@ texture = ExtResource("2_8rbpu")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fuudy")
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
