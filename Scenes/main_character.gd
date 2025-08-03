@@ -8,10 +8,13 @@ var jump_count = 0
 func _physics_process(delta: float) -> void:
 	# Animations
 	if not is_on_floor():
-		if jump_count == 1:
-			sprite_2d.animation = "jump"
-		elif jump_count == 2:
-			sprite_2d.animation = "double_jumping"
+		if velocity.y < 0:
+			if jump_count == 1:
+				sprite_2d.animation = "jump"
+			elif jump_count == 2:
+				sprite_2d.animation = "double_jumping"
+		else: # Moving downward (falling)
+			sprite_2d.animation = "Fall"
 	else:
 		if velocity.x > 1 || velocity.x < -1:
 			sprite_2d.animation = "running"
