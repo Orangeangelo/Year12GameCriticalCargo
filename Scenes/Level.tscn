@@ -325,46 +325,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="Collectable" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(50, 240)
-
-[node name="Collectable2" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(506, 191)
-
-[node name="Collectable3" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(763, 294)
-
-[node name="Collectable4" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(1038, 198)
-
-[node name="Collectable5" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(404, 528)
-
-[node name="Collectable6" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(833, 480)
-
-[node name="Collectable7" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(1177, 382)
-
-[node name="Collectable8" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(1505, 190)
-
-[node name="Collectable9" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(1612, 535)
-
-[node name="Collectable10" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(2079, 479)
-
-[node name="Collectable11" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(3124, 55)
-
-[node name="Collectable12" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(2493, 579)
-
-[node name="Collectable13" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(3030, 382)
-
-[node name="Collectable14" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(2167, 240)
+position = Vector2(52, 245)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
