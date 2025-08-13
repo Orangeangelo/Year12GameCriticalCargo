@@ -1,9 +1,9 @@
 extends Area2D
 
-@onready var game_manager: Node = %GameManager
+@onready var value: int = 1
 
 
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
-		queue_free()
-		game_manager.add_point()
+		GameController.diamond_collected(value)
+		self.queue_free()

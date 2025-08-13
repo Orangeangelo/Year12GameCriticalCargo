@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=9 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
 [ext_resource type="Texture2D" uid="uid://ckelq1e16tnbt" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://cosjc3hvad8yr" path="res://Scenes/Main_Character.tscn" id="3_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://c4ujxvj8dgxon" path="res://Scenes/collectable.tscn" id="4_fuudy"]
 [ext_resource type="Script" uid="uid://bcuapvf2o5538" path="res://Scenes/game_manager.gd" id="5_xylue"]
+[ext_resource type="PackedScene" uid="uid://dwachv1m6in5v" path="res://Scenes/diamond_ui.tscn" id="6_tj5wv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -330,3 +331,10 @@ position = Vector2(52, 245)
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_xylue")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Diamond UI" parent="CanvasLayer" instance=ExtResource("6_tj5wv")]
+
+[node name="Collectable2" parent="." instance=ExtResource("4_fuudy")]
+position = Vector2(563, 198)
