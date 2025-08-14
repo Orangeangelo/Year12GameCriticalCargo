@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=20 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
 [ext_resource type="Texture2D" uid="uid://ckelq1e16tnbt" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_8rbpu"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c4ujxvj8dgxon" path="res://Scenes/collectable.tscn" id="4_fuudy"]
 [ext_resource type="Script" uid="uid://bcuapvf2o5538" path="res://Scenes/game_manager.gd" id="5_xylue"]
 [ext_resource type="PackedScene" uid="uid://dwachv1m6in5v" path="res://Scenes/diamond_ui.tscn" id="6_tj5wv"]
+[ext_resource type="FontFile" uid="uid://c0lat3vnc5c2n" path="res://Pixellari.ttf" id="7_5rrr5"]
+[ext_resource type="AudioStream" uid="uid://boyn2sodd4cjt" path="res://pixel-song-16-31697.mp3" id="7_ienac"]
+[ext_resource type="Script" uid="uid://bjg7apk78mj6r" path="res://Scenes/pause.gd" id="7_or7tv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -305,6 +308,28 @@ texture = ExtResource("2_8rbpu")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fuudy")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rrr5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or7tv"]
+bg_color = Color(0.627451, 0.439216, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_133si"]
+bg_color = Color(0.537255, 0.372549, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esopp"]
+bg_color = Color(0.772549, 0.54902, 0.258824, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b10nm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhlu0"]
+bg_color = Color(0.627451, 0.439216, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bktio"]
+bg_color = Color(0.537255, 0.372549, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrlyp"]
+bg_color = Color(0.772549, 0.54902, 0.258824, 1)
+
 [node name="Node" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -339,5 +364,92 @@ script = ExtResource("5_xylue")
 
 [node name="Diamond UI" parent="CanvasLayer" instance=ExtResource("6_tj5wv")]
 
+[node name="Pause" type="Node" parent="CanvasLayer"]
+script = ExtResource("7_or7tv")
+
+[node name="PausePanel" type="Panel" parent="CanvasLayer/Pause"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PausePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -107.0
+offset_right = 190.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_5rrr5")
+theme_override_font_sizes/font_size = 50
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -41.0
+offset_right = 182.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Resume" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_5rrr5")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5rrr5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_or7tv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_133si")
+theme_override_styles/normal = SubResource("StyleBoxFlat_esopp")
+text = "Resume"
+
+[node name="menu" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_5rrr5")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b10nm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fhlu0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bktio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrlyp")
+text = "Main Menu"
+
 [node name="Collectable2" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(563, 198)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ienac")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/menu" to="CanvasLayer/Pause" method="_on_menu_pressed"]

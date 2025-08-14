@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxsgmstmljdh4"]
+[gd_scene load_steps=15 format=3 uid="uid://cxsgmstmljdh4"]
 
 [ext_resource type="Script" uid="uid://b5j7m47w87e80" path="res://Scenes/main_menu.gd" id="1_b7rmo"]
 [ext_resource type="Texture2D" uid="uid://3jwijvbpm5ju" path="res://c1fcf4295fbd348a867217e5e70352be.png" id="2_00u4r"]
 [ext_resource type="FontFile" uid="uid://c0lat3vnc5c2n" path="res://Pixellari.ttf" id="3_anlgx"]
+[ext_resource type="AudioStream" uid="uid://boyn2sodd4cjt" path="res://pixel-song-16-31697.mp3" id="4_00u4r"]
+[ext_resource type="Script" uid="uid://1k7uxjxcjcqx" path="res://Scenes/audio_control.gd" id="5_anlgx"]
+[ext_resource type="Script" uid="uid://bur4h44b2calp" path="res://Scenes/fullscreen_control.gd" id="6_xvotp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnfjo"]
 texture = ExtResource("2_00u4r")
@@ -37,6 +40,18 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_00u4r"]
+color = Color(0.772549, 0.54902, 0.258824, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_anlgx"]
+color = Color(0.537255, 0.372549, 0.14902, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xvotp"]
+color = Color(0.537255, 0.372549, 0.14902, 1)
+thickness = 6
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -55,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_dnfjo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 9
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="Main buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -85,7 +100,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtjmy")
 text = "Start Game"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Button2" type="Button" parent="Main buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -100,7 +115,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wtjmy")
 text = "Settings"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="Button3" type="Button" parent="Main buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -136,6 +151,101 @@ text = "Critical Cargo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_00u4r")
+autoplay = true
+bus = &"Music"
+
+[node name="settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -111.0
+offset_right = 297.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="settings"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 6.5
+offset_right = -1.0
+offset_bottom = 38.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_anlgx")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="settings"]
+offset_left = 152.0
+offset_top = 255.0
+offset_right = 434.0
+offset_bottom = 329.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_anlgx")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wugcc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wugcc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wtjmy")
+text = "Back"
+
+[node name="FullscreenControl" type="CheckBox" parent="settings"]
+visible = false
+layout_mode = 0
+offset_left = 154.0
+offset_top = 116.0
+offset_right = 444.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("3_anlgx")
+text = "Fullscreen"
+script = ExtResource("6_xvotp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 79.0
+offset_right = 337.0
+offset_bottom = 166.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="settings/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_anlgx")
+theme_override_font_sizes/font_size = 17
+text = "Music"
+
+[node name="AudioControl" type="HSlider" parent="settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_00u4r")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_anlgx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_xvotp")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_anlgx")
+audio_bus_name = "Music"
+
+[connection signal="pressed" from="Main buttons/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main buttons/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main buttons/Button3" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="settings/Back" to="." method="_on_back_settings_pressed"]
+[connection signal="toggled" from="settings/FullscreenControl" to="settings/FullscreenControl" method="_on_toggled"]
+[connection signal="value_changed" from="settings/VBoxContainer/HBoxContainer/AudioControl" to="settings/VBoxContainer/HBoxContainer/AudioControl" method="_on_value_changed"]
