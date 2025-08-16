@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 425.0
 const JUMP_VELOCITY = -750.0
 var jump_count = 0
+var facing_left = false
 @onready var sprite_2d = $Sprite2D
 
 func _physics_process(delta: float) -> void:
@@ -13,7 +14,7 @@ func _physics_process(delta: float) -> void:
 				sprite_2d.animation = "jump"
 			elif jump_count == 2:
 				sprite_2d.animation = "double_jumping"
-		else: # Moving downward (falling)
+		else: 
 			sprite_2d.animation = "Fall"
 	else:
 		if velocity.x > 1 || velocity.x < -1:
@@ -32,14 +33,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 
-	# Get the input direction and handle the movement/deceleration
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		facing_left = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	
-	var isLeft = velocity.x < 0
-	sprite_2d.flip_h = isLeft
+	sprite_2d.flip_h = facing_left
