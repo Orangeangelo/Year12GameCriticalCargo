@@ -269,18 +269,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0au5"]
-size = Vector2(25, 20)
+size = Vector2(70, 47)
 
 [node name="Mushroom" type="CharacterBody2D"]
 script = ExtResource("1_8wxru")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.5, 0)
-scale = Vector2(1.03125, 1)
+position = Vector2(30, -1.45455)
+scale = Vector2(2.9375, 2.84848)
 sprite_frames = SubResource("SpriteFrames_0l4tg")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 5)
+position = Vector2(30, 19)
 shape = SubResource("RectangleShape2D_e0au5")
