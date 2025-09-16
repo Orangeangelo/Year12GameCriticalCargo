@@ -374,6 +374,7 @@ script = ExtResource("7_or7tv")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/Pause"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
