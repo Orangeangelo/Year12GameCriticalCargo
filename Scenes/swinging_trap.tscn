@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj24kkkg6itl4"]
+
+[ext_resource type="Script" uid="uid://ctxbrutk7d0b0" path="res://Scenes/swinging_trap.gd" id="1_1j5ev"]
+[ext_resource type="Texture2D" uid="uid://dx1ss742i73tt" path="res://Trap and Weapon/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/trap_suspended_anim_strip_18.png" id="1_p3hyo"]
+
+[sub_resource type="Animation" id="Animation_1j5ev"]
+resource_name = "Swing"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-1.81689, -0.25, 0, 0.25, 0, 1.81689, -0.25, 0, 0.25, 0, -1.81689, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.733333, 1.5)
+}
+
+[sub_resource type="Animation" id="Animation_qrpcl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.81689, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppf13"]
+_data = {
+&"RESET": SubResource("Animation_qrpcl"),
+&"Swing": SubResource("Animation_1j5ev")
+}
+
+[node name="SwingingTrap" type="Node2D"]
+rotation = -1.81689
+script = ExtResource("1_1j5ev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 15)
+scale = Vector2(4.688, 4.688)
+texture = ExtResource("1_p3hyo")
+hframes = 18
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-1.15384, -52.8741)
+scale = Vector2(4.688, 4.688)
+polygon = PackedVector2Array(0, 14, -7, 14, -12, 18, -9, 21, -9.28717, 23.8397, -12, 26, -9, 30, -9, 32, -12.1898, 34.4758, -10, 36, -10, 40, -12, 42, -6.98395, 46.192, -1, 46, 7.29496, 46.2596, 11.9042, 41.919, 9, 40, 9, 37, 11.9131, 34.0034, 9, 32, 9, 29, 11.9219, 26.0879, 9, 24, 9, 21, 12, 18, 7, 14)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ppf13")
+}
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
