@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=25 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="PackedScene" uid="uid://j0ei1s2p1gj1" path="res://Scenes/background.tscn" id="1_133si"]
+[ext_resource type="Script" uid="uid://bna4hrsxnc1d1" path="res://Scenes/level.gd" id="1_bktio"]
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
 [ext_resource type="Texture2D" uid="uid://ckelq1e16tnbt" path="res://Pixel Adventure 1/Free/Terrain/Terrain (16x16).png" id="2_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://cosjc3hvad8yr" path="res://Scenes/Main_Character.tscn" id="3_8rbpu"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bjg7apk78mj6r" path="res://Scenes/pause.gd" id="7_or7tv"]
 [ext_resource type="PackedScene" uid="uid://c30nedroreqgc" path="res://Scenes/SpikeTrap.tscn" id="11_esopp"]
 [ext_resource type="PackedScene" uid="uid://cj24kkkg6itl4" path="res://Scenes/swinging_trap.tscn" id="12_b10nm"]
+[ext_resource type="PackedScene" uid="uid://bprnswdludwwp" path="res://Scenes/checkpoint.tscn" id="13_fhlu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -334,6 +336,7 @@ bg_color = Color(0.537255, 0.372549, 0.14902, 1)
 bg_color = Color(0.772549, 0.54902, 0.258824, 1)
 
 [node name="Node" type="Node2D"]
+script = ExtResource("1_bktio")
 
 [node name="Background" parent="." instance=ExtResource("1_133si")]
 position = Vector2(676, -8)
@@ -497,6 +500,9 @@ rotation = 3.14159
 
 [node name="SwingingTrap" parent="." instance=ExtResource("12_b10nm")]
 position = Vector2(857, 9)
+
+[node name="Checkpoint" parent="." instance=ExtResource("13_fhlu0")]
+position = Vector2(556, 86)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]

@@ -3,6 +3,20 @@
 [ext_resource type="Script" uid="uid://ctxbrutk7d0b0" path="res://Scenes/swinging_trap.gd" id="1_1j5ev"]
 [ext_resource type="Texture2D" uid="uid://dx1ss742i73tt" path="res://Trap and Weapon/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/trap_suspended_anim_strip_18.png" id="1_p3hyo"]
 
+[sub_resource type="Animation" id="Animation_qrpcl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.81689, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_1j5ev"]
 resource_name = "Swing"
 length = 1.5
@@ -17,20 +31,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-1.81689, -0.25, 0, 0.25, 0, 1.81689, -0.25, 0, 0.25, 0, -1.81689, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.733333, 1.5)
-}
-
-[sub_resource type="Animation" id="Animation_qrpcl"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-1.81689, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ppf13"]
