@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://c0lat3vnc5c2n" path="res://Pixellari.ttf" id="7_5rrr5"]
 [ext_resource type="AudioStream" uid="uid://boyn2sodd4cjt" path="res://pixel-song-16-31697.mp3" id="7_ienac"]
 [ext_resource type="Script" uid="uid://bjg7apk78mj6r" path="res://Scenes/pause.gd" id="7_or7tv"]
-[ext_resource type="PackedScene" uid="uid://bbc1kypahw35g" path="res://Scenes/mushroom.tscn" id="11_esopp"]
+[ext_resource type="PackedScene" path="res://Scenes/mushroom.tscn" id="11_esopp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
