@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bbc1kypahw35g"]
+[gd_scene load_steps=42 format=3 uid="uid://b3dd0v21nwq2p"]
 
 [ext_resource type="Script" uid="uid://d4g7mghcq6wgd" path="res://Scenes/mushroom.gd" id="1_8wxru"]
 [ext_resource type="Texture2D" uid="uid://c8waawttx48si" path="res://Pixel Adventure 2/Enemies/Mushroom/Hit.png" id="1_e0au5"]
@@ -269,7 +269,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0au5"]
-size = Vector2(70, 47)
+size = Vector2(70, 52.5)
 
 [node name="Mushroom" type="CharacterBody2D"]
 script = ExtResource("1_8wxru")
@@ -279,8 +279,13 @@ texture_filter = 1
 position = Vector2(30, -1.45455)
 scale = Vector2(2.9375, 2.84848)
 sprite_frames = SubResource("SpriteFrames_0l4tg")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(30, 19)
+position = Vector2(30, 16.25)
 shape = SubResource("RectangleShape2D_e0au5")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(81, 2)
+scale = Vector2(3, 3)
+target_position = Vector2(0, 15)

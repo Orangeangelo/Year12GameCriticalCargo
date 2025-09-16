@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=21 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="PackedScene" uid="uid://j0ei1s2p1gj1" path="res://Scenes/background.tscn" id="1_133si"]
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
@@ -10,7 +10,6 @@
 [ext_resource type="FontFile" uid="uid://c0lat3vnc5c2n" path="res://Pixellari.ttf" id="7_5rrr5"]
 [ext_resource type="AudioStream" uid="uid://boyn2sodd4cjt" path="res://pixel-song-16-31697.mp3" id="7_ienac"]
 [ext_resource type="Script" uid="uid://bjg7apk78mj6r" path="res://Scenes/pause.gd" id="7_or7tv"]
-[ext_resource type="PackedScene" path="res://Scenes/mushroom.tscn" id="11_esopp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -352,7 +351,7 @@ tile_map_data = PackedByteArray("AAD//wIAAAARAAYAAAAFAAYAAAAGAAUAAAAGAAcAAAAHAAY
 tile_set = SubResource("TileSet_xylue")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_8rbpu")]
-position = Vector2(226, 141)
+position = Vector2(90, 235)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(4, -5)
@@ -461,7 +460,7 @@ parameters/looping = true
 position = Vector2(405, 536)
 
 [node name="Collectable4" parent="." instance=ExtResource("4_fuudy")]
-position = Vector2(834, 485)
+position = Vector2(927, 206)
 
 [node name="Collectable5" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(3117, 43)
@@ -489,9 +488,6 @@ position = Vector2(1869, 374)
 
 [node name="Collectable13" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(2082, 489)
-
-[node name="Mushroom" parent="." instance=ExtResource("11_esopp")]
-position = Vector2(2129, 245)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]
