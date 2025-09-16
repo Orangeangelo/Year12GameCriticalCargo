@@ -374,7 +374,6 @@ script = ExtResource("7_or7tv")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/Pause"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -431,7 +430,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_133si")
 theme_override_styles/normal = SubResource("StyleBoxFlat_esopp")
 text = "Resume"
 
-[node name="menu" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
+[node name="exit" type="Button" parent="CanvasLayer/Pause/PausePanel/VBoxContainer"]
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
@@ -445,7 +444,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_b10nm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fhlu0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bktio")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nrlyp")
-text = "Main Menu"
+text = "Exit Game"
 
 [node name="Collectable2" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(563, 198)
@@ -490,4 +489,4 @@ position = Vector2(1869, 374)
 position = Vector2(2082, 489)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/menu" to="CanvasLayer/Pause" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]
