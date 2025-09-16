@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=22 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="PackedScene" uid="uid://j0ei1s2p1gj1" path="res://Scenes/background.tscn" id="1_133si"]
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="1_vsvp5"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://c0lat3vnc5c2n" path="res://Pixellari.ttf" id="7_5rrr5"]
 [ext_resource type="AudioStream" uid="uid://boyn2sodd4cjt" path="res://pixel-song-16-31697.mp3" id="7_ienac"]
 [ext_resource type="Script" uid="uid://bjg7apk78mj6r" path="res://Scenes/pause.gd" id="7_or7tv"]
+[ext_resource type="PackedScene" uid="uid://c30nedroreqgc" path="res://Scenes/SpikeTrap.tscn" id="11_esopp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -488,6 +489,10 @@ position = Vector2(1869, 374)
 
 [node name="Collectable13" parent="." instance=ExtResource("4_fuudy")]
 position = Vector2(2082, 489)
+
+[node name="Area2D" parent="." instance=ExtResource("11_esopp")]
+position = Vector2(309, 190)
+rotation = 3.14159
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]

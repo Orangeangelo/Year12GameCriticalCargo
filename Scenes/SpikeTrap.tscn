@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://c30nedroreqgc"]
+
+[ext_resource type="Texture2D" uid="uid://vogv24juwryj" path="res://Trap and Weapon/platformer_metroidvania asset pack v1.01/platformer_metroidvania asset pack v1.01/miscellaneous sprites/trap_spikes_anim_strip_7.png" id="1_kiqov"]
+[ext_resource type="Script" uid="uid://bqwtgrv7nmjqn" path="res://Scenes/spike_trap.gd" id="1_yq4pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq4pv"]
+size = Vector2(75, 74)
+
+[sub_resource type="Animation" id="Animation_ag1bl"]
+resource_name = "SpikeTrigger"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 3, 2, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.205743, 0.504517),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8pyee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pket0"]
+_data = {
+&"RESET": SubResource("Animation_8pyee"),
+&"SpikeTrigger": SubResource("Animation_ag1bl")
+}
+
+[node name="SpikeTrao" type="Area2D"]
+script = ExtResource("1_yq4pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.5, -29)
+shape = SubResource("RectangleShape2D_yq4pv")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(29.5, -29.5)
+scale = Vector2(4.6875, 4.6875)
+texture = ExtResource("1_kiqov")
+hframes = 7
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pket0")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
