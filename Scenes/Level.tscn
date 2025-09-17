@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bb3i3hkgyt02f"]
+[gd_scene load_steps=26 format=4 uid="uid://bb3i3hkgyt02f"]
 
 [ext_resource type="PackedScene" uid="uid://j0ei1s2p1gj1" path="res://Scenes/background.tscn" id="1_133si"]
 [ext_resource type="Script" uid="uid://bna4hrsxnc1d1" path="res://Scenes/level.gd" id="1_bktio"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c30nedroreqgc" path="res://Scenes/SpikeTrap.tscn" id="11_esopp"]
 [ext_resource type="PackedScene" uid="uid://cj24kkkg6itl4" path="res://Scenes/swinging_trap.tscn" id="12_b10nm"]
 [ext_resource type="PackedScene" uid="uid://bprnswdludwwp" path="res://Scenes/checkpoint.tscn" id="13_fhlu0"]
+[ext_resource type="PackedScene" uid="uid://btj8vvjciond1" path="res://Scenes/falling_platform.tscn" id="15_nrlyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuudy"]
 texture = ExtResource("2_8rbpu")
@@ -503,6 +504,9 @@ position = Vector2(857, 9)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_fhlu0")]
 position = Vector2(556, 86)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("15_nrlyp")]
+position = Vector2(1322, 386)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]
