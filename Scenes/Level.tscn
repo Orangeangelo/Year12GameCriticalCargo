@@ -506,7 +506,7 @@ position = Vector2(857, 9)
 position = Vector2(556, 86)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("15_nrlyp")]
-position = Vector2(1322, 386)
+position = Vector2(1304, 312)
 
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/Resume" to="CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/PausePanel/VBoxContainer/exit" to="CanvasLayer/Pause" method="_on_exit_pressed"]
