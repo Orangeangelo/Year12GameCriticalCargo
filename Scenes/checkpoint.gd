@@ -2,7 +2,6 @@ extends Area2D
 
 func _ready() -> void:
 	$AnimationPlayer.play("Checkpoint")
-	# Connect the animation_finished signal
 	$AnimationPlayer.connect("animation_finished", _on_animation_finished)
 
 func _process(delta: float) -> void:

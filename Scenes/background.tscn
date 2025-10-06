@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://j0ei1s2p1gj1"]
 
-[ext_resource type="Script" path="res://background.gd" id="1_pojwb"]
+[ext_resource type="Script" uid="uid://cjutomq5b46j1" path="res://background.gd" id="1_pojwb"]
 [ext_resource type="Texture2D" uid="uid://d16kj61jl5bqi" path="res://Pixel Adventure 1/Free/Background/Brown.png" id="2_4aqey"]
 
 [node name="Background" type="Node2D"]
@@ -9,7 +9,7 @@ script = ExtResource("1_pojwb")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1253.0
 offset_top = -514.0
-offset_right = 2998.0
-offset_bottom = 1581.0
+offset_right = 3241.0
+offset_bottom = 1792.0
 texture = ExtResource("2_4aqey")
 stretch_mode = 1
